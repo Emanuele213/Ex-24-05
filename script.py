@@ -37,7 +37,15 @@ def create_person_table():
 
     cur.execute(create_table_query)
     conn.commit()
-    
+
+# Funzione per eliminare i dati dalla tabella "persons"
+def delete_data_from_table():
+    delete_data_query = """
+    DELETE FROM persons;
+    """
+    cur.execute(delete_data_query)
+    conn.commit()
+
 # Creazione della tabella delle persone nel database
 create_person_table()
 
@@ -110,6 +118,7 @@ while True:
     for file in files:
         file_path = os.path.join(script_dir, file)
         if file == 'persone.csv':
+            delete_data_from_table()  # Svuota la tabella "persons" nel database
             process_csv(file_path, cities_dict)
             os.remove(file_path)  # Rimuovi il file dopo averlo elaborato
     time.sleep(5)  # Attendere 5 secondi prima di controllare nuovamente la directory
