@@ -1,0 +1,7 @@
+1 Creare cartella con file Input + File Città
+2 Creare un worker 1 che legge in memoria il file delle citta come se fosse un dizionario e dopo avvia un watch sulla cartella dei file di input. Ogni qualvolta vi è un nuovo file tramite Pandas deve caricare il CSV, generare una nuova tabella e pubblicare su Apache Kakfka
+3 Craere un worker 2 il quale legge i file da Kafka e li salva sia su una cartella in formato grezzo ed anche su DB
+4 Svuotare il DB e crare uno script python prende tutti i messaggi grezzi e li ripubblica dentro Kafka cosi che worker2 andrà a riprocessare i messaggi
+-- Rispetto al diagramma deve essere aggiunto anche il codice fiscale
+5) Containerizzare il tutto
+6) Extra Bonus per chi finisce validare i  Codici fiscali usando una REGEX
